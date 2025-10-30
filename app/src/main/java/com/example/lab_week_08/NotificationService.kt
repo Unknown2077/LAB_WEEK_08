@@ -183,18 +183,17 @@ class NotificationService : Service() {
         }
         return returnValue
     }
-    //A function to update the notification to display a count down from 10 to
-    //0
+    //A function to update the notification to display a count down that finishes earlier
     private fun countDownFromTenToZero(notificationBuilder:
                                        NotificationCompat.Builder) {
         //Gets the notification manager
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as
                 NotificationManager
-        //Count down from 10 to 0
-        for (i in 10 downTo 0) {
+        //Count down from 7 to 0
+        for (i in 7 downTo 0) {
             Thread.sleep(1000L)
             //Updates the notification content text
-            notificationBuilder.setContentText("$i seconds until last warning")
+            notificationBuilder.setContentText("$i seconds until next task")
                 .setSilent(true)
             //Notify the notification manager about the content update
             notificationManager.notify(
